@@ -1,26 +1,39 @@
 <template>
   <div id="nav" class="navbar">
     <img width="40" alt="kid center" src="https://img.icons8.com/cotton/50/000000/christmas-kid-2.png" />
-    <router-link tag="a" to="/"><span>Kids Center</span></router-link>
+    <router-link tag="a" to="/"><span @click="profile">Kids Center</span></router-link>
     <div class="spacer"></div>
     <router-link tag="a" to="/"><span>Home</span></router-link>
     <router-link tag="a" to="/forum"><span>Forum</span></router-link>
     <router-link tag="a" to="/"><span>Search</span></router-link>
     <router-link tag="a" to="/profile"><span>Profile</span></router-link>
     <div class="spacer-right"></div>
-    <!-- <span rofile"><img src={{user.user_img}} class="user-logo" />{{user.username}}</span> -->
-    <router-link tag="a" to="/signin"><span class="navbar-title">Sign In</span></router-link>
-    <!-- <span class="navbar-title">Log Out</span> -->
+    <router-link v-if="user.username"  tag="a" to="/profile"><span class="d-flex align-items-center"><img :src="user.user_img" class="user-logo" />{{user.username}}</span></router-link>
+    <router-link v-if="!user.username" tag="a" to="/signin"> <span class="navbar-title">Sign In</span></router-link>
+    <router-link v-if="user.username"  tag="a" to="/">       <span @click="logout" class="navbar-title">Log Out</span></router-link>
   </div>
   <router-view/>
 </template>
 
 <script>
-// import EventBus from './EventBus';
+import {EventBus} from './EventBus.js';
 
 export default {
     name: 'App',
-    
+    data(){
+        return{
+            user : {}
+        }
+    },
+    mounted(){
+        EventBus.on('user', user => this.user = user);
+    },
+    methods:{
+        logout(){
+            this.user = {};
+        }
+    }
+
 
 }
 </script>
