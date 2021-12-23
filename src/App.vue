@@ -6,6 +6,7 @@
     <router-link tag="a" to="/"><span>Home</span></router-link>
     <router-link tag="a" to="/forum"><span>Forum</span></router-link>
     <router-link tag="a" to="/"><span>Search</span></router-link>
+    <router-link tag="a" to="/profile"><span>Profile</span></router-link>
     <div class="spacer-right"></div>
     <!-- <span rofile"><img src={{user.user_img}} class="user-logo" />{{user.username}}</span> -->
     <router-link tag="a" to="/signin"><span class="navbar-title">Sign In</span></router-link>

@@ -4,6 +4,7 @@ import SignIn from '../components/SignIn.vue' ;
 import SignUp from '../components/SignUp.vue';
 import About  from '../components/About.vue';
 import Forum from '../components/Forum.vue';
+import Profile from '../components/Profile.vue'
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
   {
     path: '/about',
     component: About
+  },
+  {
+    path: '/profile',
+    component: Profile
   }
 ]
 
