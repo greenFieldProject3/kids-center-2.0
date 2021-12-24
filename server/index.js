@@ -31,6 +31,7 @@ app.use("/user", users); // /users (CRUD) /users/:userId (RUD)
 app.use("/services", services);
 app.use("/editprofile", editprofile);
 app.use("/forum",forum);
+app.use("/session",session);
 
 // 404 errors
 app.use((req, res, next) => {

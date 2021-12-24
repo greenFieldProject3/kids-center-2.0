@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{getUser()}}
     {{user}}
   </div>
 </template>
@@ -13,6 +12,9 @@ export default {
       return {
           user : {}
       }
+  },
+  mounted() {
+      this.getUser()
   },
     methods : {
         getUser() {

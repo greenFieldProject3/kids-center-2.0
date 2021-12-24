@@ -6,7 +6,6 @@
     <router-link tag="a" to="/"><span>Home</span></router-link>
     <router-link tag="a" to="/forum"><span>Forum</span></router-link>
     <router-link tag="a" to="/"><span>Search</span></router-link>
-    <router-link tag="a" to="/profile"><span>Profile</span></router-link>
     <div class="spacer-right"></div>
     <router-link v-if="user.username"  tag="a" to="/profile"><span class="d-flex align-items-center"><img :src="user.user_img" class="user-logo" />{{user.username}}</span></router-link>
     <router-link v-if="!user.username" tag="a" to="/signin"> <span class="navbar-title">Sign In</span></router-link>
@@ -16,7 +15,6 @@
 </template>
 
 <script>
-import {EventBus} from './EventBus.js';
 
 export default {
     name: 'App',
@@ -25,9 +23,10 @@ export default {
             user : {}
         }
     },
-    mounted(){
-        EventBus.on('user', user => this.user = user);
-    },
+    // mounted(){
+    //     EventBus.on('user', user => this.user = user);
+    //     console.log('user app : ', this.user);
+    // },
     methods:{
         logout(){
             this.user = {};
