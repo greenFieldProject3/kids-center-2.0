@@ -5,7 +5,7 @@
 			<h2>
 				{{ service.fullname }}
 			</h2>
-			<p>{{ service.address }}</p>
+			<p>{{ service.city }}</p>
 			<p>(216) {{ service.phone }}</p>
 			<p>{{ service.email }}</p>
 			<div class="icons">
@@ -15,7 +15,7 @@
 			</div>
 		</figcaption>
 		<div class="image">
-			<img :src="servisesPics[service.service]" alt="sample3" />
+			<img :src="servisesPics[service.specialty]" alt="sample3" />
 		</div>
 		<div class="position">{{ service.specialty }}</div>
 	</figure>

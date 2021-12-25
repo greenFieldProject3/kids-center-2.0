@@ -60,9 +60,20 @@ module.exports = {
                // .populate(["parent", "provider"])
                // .select('-password')
 
-               res.status(200).json(user);
-          } catch (error) {
-               next(error);
-          }
-     }
+			res.status(200).json(user);
+		} catch (error) {
+			next(error);
+		}
+	},
+	find_all_service_providers: async (req, res) => {
+		try {
+			console.log("hhhhhhhhhhhhhhhh");
+			let providers = await User.find({
+				category: "provider",
+			});
+			res.send(providers);
+		} catch (error) {
+			res.send(error);
+		}
+	},
 };

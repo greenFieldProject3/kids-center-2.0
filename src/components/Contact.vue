@@ -5,12 +5,10 @@
 	<div class="container-fluid">
 		<div class="row main-content bg-success text-center">
 			<div class="col-md-4 text-center company__info">
-				<span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
-				<h4 class="company_title"> </h4>
 			</div>
 			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
 				<div class="container-fluid">
-					<div class="row">
+					<div class="row ">
 						<h2>Contact Us</h2>
 					</div>
 					<div class="row">
@@ -34,8 +32,8 @@
 							</div>
 						</form>
 					</div>
-					<div class="row">
-						<p>Don't have an account? <a href="#"> <router-link to="/signup"><span>Register Here</span></router-link> </a></p>
+					<div class="row py-3">
+						<p> You Don't have an account? <a href="#"> <router-link to="/signup"><span>Register Here</span></router-link> </a></p>
 					</div>
 				</div>
 			</div>
@@ -79,7 +77,7 @@
                              this.name = '';
                              this.email = '';
                              this.message = '';
-                             
+
                              })
                          .catch(err => console.log("contact error : ", err))
                }
@@ -97,17 +95,15 @@
 	display: flex;
 }
 .company__info{
-	/* background-color: #008080; */
+	/* background-color: #9cc7c7; */
     background-image: url("https://images.pexels.com/photos/9902413/pexels-photo-9902413.jpeg");
+    background-size: cover;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	color: #fff;
-}
-.fa-android{
-	font-size:3em;
+	/* color: #fff; */
 }
 
 @media screen and (max-width: 640px) {
@@ -123,9 +119,9 @@
 @media screen and (min-width: 642px) and (max-width:800px){
 	.main-content{width: 70%;}
 }
-.row > h2{
+/* .row > h2{
 	color:#008080;
-}
+} */
 .login_form{
 	background-color: #fff;
 	border-top-right-radius:20px;
@@ -135,6 +131,7 @@
 }
 form{
 	padding: 0 2em;
+    box-shadow: none !important ;
 }
 .form__input{
 	width: 100%;
@@ -148,7 +145,7 @@ form{
 	transition: all .5s ease;
 }
 .form__input:focus{
-	border-bottom-color: #008080;
+	/* border-bottom-color: #008080; */
 	/* box-shadow: 0 0 5px rgba(0,80,80,.4);  */
 	border-radius: 4px;
 }

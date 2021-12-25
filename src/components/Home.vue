@@ -1,44 +1,48 @@
 <template>
-  <div >
+  <div>
     <!-- home page -->
     <header>
-	<div class="overlay">
-<h2>WELCOME TO KIDS CENTER</h2>
-<h3>Reasons for Choosing US</h3>
-<h3>We Provide With Quality Education To Our Kids</h3>
+      <div class="overlay">
+        <h2>WELCOME TO KIDS CENTER</h2>
+        <h3>Reasons for Choosing US</h3>
+        <h3>We Provide With Quality Education To Our Kids</h3>
 
-	<br>
-<label> <router-link to="/signup"><button>Learn More</button></router-link></label>
-		</div>
-</header>
-<!-- events -->
-<div class="my-5">
-      
+        <br />
+        <label>
+          <router-link to="/signup"
+            ><button>Learn More</button></router-link
+          ></label
+        >
+      </div>
+    </header>
+    <!-- events -->
+    <div class="my-5">
       <div class="wrap-cards">
         <div class="card">
           <div class="wrap-image">
             <img
-              class="img-event" src="https://images.pexels.com/photos/8107846/pexels-photo-8107846.jpeg"
+              class="img-event"
+              src="https://images.pexels.com/photos/8107846/pexels-photo-8107846.jpeg"
               alt="animals pictures"
             />
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
               <polygon points="0,100 100,100 100,0"></polygon>
             </svg>
           </div>
-        
+
           <div class="contents">
             <h3>Various Programs</h3>
             <div class="text">
-             We have a variety of programs to offer your children regardless of their age and level of knowledge.
+              We have a variety of programs to offer your children regardless of
+              their age and level of knowledge.
             </div>
           </div>
         </div>
         <div class="card">
           <div class="wrap-image">
             <img
-             class="img-event"
+              class="img-event"
               src="https://images.pexels.com/photos/8471964/pexels-photo-8471964.jpeg"
-              
             />
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
               <polygon
@@ -46,20 +50,20 @@
               ></polygon>
             </svg>
           </div>
-     
+
           <div class="contents">
             <h3>Hobby Groups</h3>
             <div class="text">
-              The groups where your children will be educated are created according to your child’s interests.
+              The groups where your children will be educated are created
+              according to your child’s interests.
             </div>
           </div>
         </div>
         <div class="card">
           <div class="wrap-image">
             <img
-             class="img-event"
-              src="https://images.pexels.com/photos/5427674/pexels-photo-5427674.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              
+              class="img-event"
+              src="https://images.pexels.com/photos/5427674/pexels-photo-5427674.jpeg"
             />
             <svg
               viewBox="-2.93 488.5 604.753 113.677"
@@ -70,97 +74,65 @@
               ></path>
             </svg>
           </div>
-         
+
           <div class="contents">
             <h3>Qualified Teachers</h3>
             <div class="text">
-            We employ only highly skilled teachers with more than 5 years of experience in teaching children.
+              We employ only highly skilled teachers with more than 5 years of
+              experience in teaching children.
             </div>
           </div>
         </div>
       </div>
-      <span>Kids Are The Best Explorers In The World
-</span>
+      <h1>Kids Are The Best Explorers In The World</h1>
     </div>
-<!-- footer -->
-<footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
-            <span class="text-white" data-aos="fade-up" data-aos-delay="100">
-              Kids Are <strong> The Best Explorers</strong> In The World.
-            </span>
-          </div>
-
-          <div
-            class="col-lg-3 col-md-6 col-12"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <h4 class="my-4">Contact Info</h4>
-
-            <p class="mb-1">
-              <i class="fa fa-phone mr-2 footer-icon"></i>
-              +99 080 070 4224
-            </p>
-
-            <p>
-              <a href="#">
-                <i class="fa fa-envelope mr-2 footer-icon"></i>
-                kids-Center@company.com
-              </a>
-            </p>
-          </div>
-
-          <div
-            class="col-lg-3 col-md-6 col-12"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <h4 class="my-4">Our Studio</h4>
-
-            <p class="mb-1">
-              <i class="fa fa-home mr-2 footer-icon"></i>
-              tunis,pole technologique el ghazala
-            </p>
-          </div>
-
-          <div
-            class="col-lg-4 mx-lg-auto text-center col-md-8 col-12"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <p class="copyright-text">Copyright &copy; 2021</p>
-            <a>Created with❤️ by kids Center</a>
-            <br/>
-          </div>
-
-          <div
-            class="col-lg-4 mx-lg-auto col-md-6 col-12"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            <ul class="footer-link">
-              <li><a href="#">Stories</a></li>
-              <li><a href="#">Work with us</a></li>
-              <li><a href="#">Privacy</a></li>
-            </ul>
-          </div>
-
-          <div
-            class="col-lg-3 mx-lg-auto col-md-6 col-12"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <ul class="social-icon">
-              <li><a href="#" class="fa fa-instagram"></a></li>
-              <li><a href="#" class="fa fa-twitter"></a></li>
-              <li><a href="#" class="fa fa-dribbble"></a></li>
-              <li><a href="#" class="fa fa-behance"></a></li>
-            </ul>
-          </div>
-        </div>
+    <!-- footer -->
+    <footer class="footer">
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
       </div>
+      <ul class="social-icon">
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+      </ul>
+      <ul class="menu">
+        <label
+          ><router-link class="menu__link" to="/"> Home</router-link></label
+        >
+        <label
+          ><router-link class="menu__link" to="/about">Team</router-link></label
+        >
+        <label
+          ><router-link class="menu__link" to="/contact"
+            >Contact</router-link
+          ></label
+        >
+      </ul>
+      <p class="copyright">
+        2021 |
+        <a>Created with❤️ by kids Center</a>
+      </p>
     </footer>
   </div>
 </template>
@@ -168,17 +140,16 @@
 <script>
 // @ is an alias to /src
 export default {
-  name: 'Home'
-}
+  name: "Home",
+};
 </script>
 
 <style scoped>
 /* event */
 
- .img-event{
-   max-height: 350px;
- }
-
+.img-event {
+  max-height: 350px;
+}
 
 *,
 *::before,
@@ -207,7 +178,7 @@ h1 {
   margin: 0 0 4rem;
   text-align: center;
   font-size: 1.6em;
-  color:  #5c899e;
+  color: #5c899e;
 }
 .wrap-cards {
   display: flex;
@@ -262,220 +233,168 @@ h1 {
   line-height: 1.6;
   font-size: 0.9em;
 }
-@media all and (max-width: 768px) {
-  .card {
-    width: 49%;
-    margin-bottom: 3rem;
-  }
-}
-@media all and (max-width: 480px) {
-  .card {
-    width: 100%;
-    margin-bottom: 3rem;
-  }
-}
 
 /* footer */
-.site-footer {
-  /* background: var(--dark-color); */
-  background-color:rgb(107, 124, 129);
-  padding: 7em 0 6em 0;
-}
-
-.site-footer a {
-  color: var(--p-color);
-}
-
-.site-footer a:hover,
-.footer-icon {
-  color: var(--secondary-color);
-}
-
-.footer-link li {
-  display: inline-block;
-  list-style: none;
-  margin: 0 10px;
-}
-
-.copyright-text,
-.footer-link,
-.site-footer .social-icon {
-  margin-top: 6em;
-}
-
-.copyright-text {
-  margin-top: 5.3em;
-}
-
-/*---------------------------------------
-     SOCIAL ICON              
-  -----------------------------------------*/
-
-.social-icon {
-  position: relative;
+* {
+  margin: 0;
   padding: 0;
-  margin: 4em 0 0 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 300px;
 }
 
-.social-icon li {
-  display: inline-block;
+body {
+  display: flex;
+  background: #333;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 100vh;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #748fb8e5;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
   list-style: none;
 }
 
-.social-icon li a {
-  text-decoration: none;
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
   display: inline-block;
-  font-size: var(--base-font-size);
-  margin: 10px;
-  text-align: center;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
 }
 
-/*---------------------------------------
-     RESPONSIVE STYLES              
-  -----------------------------------------*/
-
-@media screen and (min-width: 1200px) {
-  .about-info h2 {
-    max-width: 70%;
-  }
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
 }
 
-@media screen and (min-width: 991px) {
-  .project h2 {
-    max-width: 32%;
-    margin: 0 auto;
-  }
+.menu__link:hover {
+  opacity: 1;
 }
 
-@media screen and (max-width: 991px) {
-  .hero {
-    padding-top: 14em;
-  }
-
-  .hero-text {
-    bottom: 2em;
-  }
-
-  .navbar {
-    padding: 1em;
-  }
-
-  .navbar-collapse {
-    text-align: center;
-    padding: 2.5em 0;
-  }
-
-  .nav-link {
-    display: inline-block;
-  }
-
-  .navbar-expand-lg .navbar-nav .nav-link.contact {
-    margin: 1em 0;
-  }
-
-  .copyright-text,
-  .footer-link,
-  .site-footer .social-icon {
-    margin-top: 3em;
-    padding: 0;
-    text-align: left;
-  }
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
-@media screen and (max-width: 767px) {
-  h1 {
-    font-size: 36px;
-  }
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  /* background: url("https://i.ibb.co/wQZVxxk/wave.png"); */
 
-  h2 {
-    font-size: 28px;
-  }
+  background-size: 1000px 100px;
+}
 
-  h3 {
-    font-size: 22px;
-  }
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
 
-  .project-info {
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-  }
-
-  .footer-link,
-  .site-footer .social-icon {
-    margin-top: 1em;
-  }
-
-  .copyright-text {
-    margin: 2.5em 0 1em 0;
-  }
-
-  .footer-link li {
-    margin-left: 0;
-  }
+  animation: animateWaves 4s linear infinite color #748fb8e5 !important;
 }
 
 /* the design of the home page */
-*{padding: 0; margin: 0; box-sizing: border-box;}
-body{height: 900px;}
-header {
-    background-color: rgb(248, 248, 248);
-	background: url('http://www.autodatz.com/wp-content/uploads/2017/05/Old-Car-Wallpapers-Hd-36-with-Old-Car-Wallpapers-Hd.jpg');
-	text-align: center;
-	width: 100%;
-	height: auto;
-	background-size: cover;
-	background-attachment: fixed;
-	position: relative;
-	overflow: hidden;
-	border-radius: 0 0 85% 85% / 30%;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-header .overlay{
+body {
+  height: 900px;
+}
+header {
+  /* background-color: rgba(248, 248, 248, 0.335); */
+  background-image: url("https://images.pexels.com/photos/5428267/pexels-photo-5428267.jpeg");
+
+  text-align: center;
+  /* width: 100%; */
+  height: auto;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 85% 85% / 30%;
+}
+header .overlay {
   display: flex;
   flex-direction: column;
   justify-content: center;
-	width: 100%;
-	height: 100%;
-	padding: 50px;
-	color: #FFF;
-	text-shadow: 1px 1px 1px #333;
-  background-image: linear-gradient( 135deg, #a1c2d89d 10%, #bde4ebce 100%);
-		/* background: url("https://wallpaperaccess.com/full/1265273.jpg"); */
-        /* background-repeat:no-repeat;  */
-
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
+  /* background-image: linear-gradient( 135deg, #a1c2d89d 10%, #bde4ebce 100%); */
+  /* background: url("https://wallpaperaccess.com/full/1265273.jpg"); */
+  /* background-repeat:no-repeat;  */
 }
 
-header .overlay button{
+header .overlay button {
   width: 250px;
   margin: 0 auto;
   margin-bottom: 3rem;
 }
 
-
 h2 {
-	font-family: 'Dancing Script', cursive;
-	font-size: 80px;
-	margin-bottom: 30px;
+  font-family: "Dancing Script", cursive;
+  font-size: 80px;
+  margin-bottom: 30px;
 }
 
-h3, p {
-	font-family: 'Open Sans', sans-serif;
-	margin-bottom: 30px;
+h3,
+p {
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 30px;
 }
 
 button {
-	border: none;
-	outline: none;
-	padding: 10px 20px;
-	border-radius: 50px;
-	color: #333;
-	background: #fff;
-	margin-bottom: 50px;
-	box-shadow: 0 3px 20px 0 #0000003b;
-
-
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #333;
+  background: #fff;
+  margin-bottom: 50px;
+  box-shadow: 0 3px 20px 0 #0000003b;
 }
-button:hover{
-	cursor: pointer;
+button:hover {
+  cursor: pointer;
 }
 </style>
