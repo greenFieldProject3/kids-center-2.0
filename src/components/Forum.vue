@@ -41,7 +41,7 @@ import axios from "axios";
 import { useRoute } from "vue-router";
 
 export default {
-  name: "Forum",
+  name: "Forum", 
   data() {
     return {
       user: {},
@@ -59,9 +59,9 @@ export default {
         .then(({data}) => {
           console.log("user response : ", data);
           this.user = data;
+          this.getAllTheMessages();
         })
         .catch(error   => console.error("forum user error : ", error));
-        this.getAllTheMessages();
   },
 
   methods: {

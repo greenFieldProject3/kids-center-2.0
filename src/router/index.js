@@ -7,6 +7,7 @@ import Forum    from '../components/Forum.vue';
 import Services from '../components/Services.vue';
 import Contact  from '../components/Contact.vue'
 import Admin    from '../components/Admin.vue';
+import Profile  from '../components/Profile.vue';
 
 const routes = [
   {
@@ -40,6 +41,10 @@ const routes = [
   {
     path: '/admin/index',
     component: Admin
+  },
+  {
+    path: '/profile/:id',
+    component: Profile
   }
 
 ]

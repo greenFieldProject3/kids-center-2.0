@@ -9,7 +9,7 @@
     <div class="spacer-right"></div>
     <router-link to="/about"><span class="navbar-title">About</span></router-link>
     <router-link to="/contact"><span class="navbar-title">Contact</span></router-link>
-    <router-link v-if="user.username"  to="/"><span class="d-flex align-items-center"><img :src="user.user_img" class="user-logo" />{{user.username}}</span></router-link>
+    <router-link v-if="user.username"  :to="`/profile/${user._id}`"><span class="d-flex align-items-center"><img :src="user.user_img" class="user-logo" />{{user.username}}</span></router-link>
     <router-link v-if="!user.username" to="/signin"> <span class="navbar-title">Sign In</span></router-link>
     <router-link v-if="user.username"  to="/">       <span @click="logout" class="navbar-title">Log Out</span></router-link>
   </div>
