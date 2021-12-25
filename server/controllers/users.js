@@ -54,17 +54,26 @@ module.exports = {
           try {
                // console.log("queryUser", req.query);               // the server will try the following
                // console.log("params", req.params);
-               const user = await User
-                    //{fullname:"/"+req.query.fullname+"/",city:"/"+req.query.city+"/",specialty:"/"+req.query.specialty+"/"}
-                    .find({ city: { $regex: req.query.city }, fullname: { $regex: req.query.fullname }, specialty: { $regex: req.query.specialty }, category: "provider" })
+               const user = await User.find({ category: "provider" })
 
                console.log(user)
                // .populate(["parent", "provider"])
                // .select('-password')
 
-               res.status(200).json(user);
-          } catch (error) {
-               next(error);
-          }
-     }
+			res.status(200).json(user);
+		} catch (error) {
+			next(error);
+		}
+	},
+	find_all_service_providers: async (req, res) => {
+		try {
+			console.log("hhhhhhhhhhhhhhhh");
+			let providers = await User.find({
+				category: "provider",
+			});
+			res.send(providers);
+		} catch (error) {
+			res.send(error);
+		}
+	},
 };

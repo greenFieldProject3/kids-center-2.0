@@ -19,7 +19,7 @@
 
 <script>
 import axios from 'axios';
-// import EventBus from '../EventBus';
+import {inject} from 'vue';
 
 export default {
      name : 'SignIn',
@@ -28,7 +28,8 @@ export default {
                user    : {},
                username: '',
                password: '',
-               status  : ''
+               status  : '',
+               EventBus : inject('EventBus')
           }
      },
      methods :{
@@ -37,15 +38,17 @@ export default {
                     username: this.username,
                     password: this.password
                }
-               
+                              
                axios.post('http://localhost:8000/auth/signin', user)
                     .then(({data}) => {
-                         console.log("signin response : ", data);
+                         // console.log("signin response : ", data);
                          this.username = '';
                          this.password = '';
                          this.user   = data;
                          this.status = '';
 
+                         this.EventBus.emit('user', this.user);
+                         this.$router.push("/");
                          })
                     .catch(err => {
                          this.status = "wrrong username/password";

@@ -1,25 +1,41 @@
 <template>
   <div id="nav" class="navbar">
     <img width="40" alt="kid center" src="https://img.icons8.com/cotton/50/000000/christmas-kid-2.png" />
-    <router-link tag="a" to="/"><span>Kids Center</span></router-link>
+    <router-link to="/"><span>Kids Center</span></router-link>
     <div class="spacer"></div>
-    <router-link tag="a" to="/"><span>Home</span></router-link>
-    <router-link tag="a" to="/forum"><span>Forum</span></router-link>
-    <router-link tag="a" to="/"><span>Search</span></router-link>
+    <router-link  to="/"><span>Home</span></router-link>
+    <router-link v-if="user.username" :to="`/forum/${user._id}`"><span>Forum</span></router-link>
+    <router-link v-if="user.username" to="/services"><span>Search</span></router-link>
     <div class="spacer-right"></div>
-    <!-- <span rofile"><img src={{user.user_img}} class="user-logo" />{{user.username}}</span> -->
-    <router-link tag="a" to="/signin"><span class="navbar-title">Sign In</span></router-link>
-    <!-- <span class="navbar-title">Log Out</span> -->
+    <router-link to="/about"><span class="navbar-title">About</span></router-link>
+    <router-link to="/contact"><span class="navbar-title">Contact</span></router-link>
+    <router-link v-if="user.username"  :to="`/profile/${user._id}`"><span class="d-flex align-items-center"><img :src="user.user_img" class="user-logo" />{{user.username}}</span></router-link>
+    <router-link v-if="!user.username" to="/signin"> <span class="navbar-title">Sign In</span></router-link>
+    <router-link v-if="user.username"  to="/">       <span @click="logout" class="navbar-title">Log Out</span></router-link>
   </div>
   <router-view/>
 </template>
 
 <script>
-// import EventBus from './EventBus';
+import {inject} from 'vue';
 
 export default {
     name: 'App',
-    
+    data(){
+        return{
+            user : {},
+            EventBus : inject('EventBus')
+        }
+    },
+    mounted(){
+        this.EventBus.on('user', (user) => this.user = user);
+    },
+    methods:{
+        logout(){
+            this.user = {};
+        }
+    }
+
 
 }
 </script>
@@ -62,7 +78,7 @@ span {
     margin:5%;
     margin-left: 25%;
     min-height: 300px;
-    background-color: salmon;
+    /* background-color: salmon; */
 }
 
 .navbar {
@@ -73,7 +89,7 @@ span {
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: hsl(200, 70%, 50%);
+    background-color: hsl(200, 27%, 59%);
     color: white;
     font-size: 17px;
     font-weight: 600;

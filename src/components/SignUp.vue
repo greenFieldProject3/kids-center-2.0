@@ -127,7 +127,7 @@ export default {
                }
                
                axios.post('http://localhost:8000/auth/signup', user)
-                    .then(({data}) => console.log("signup response : ", data))
+                    .then(() => this.$router.push("/signin"))
                     .catch(err => console.log("signup response : ", err))
           },
           specialityShow(e){

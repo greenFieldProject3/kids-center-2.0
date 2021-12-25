@@ -1,4 +1,4 @@
-const Events = require("../models/event");
+const Events = require("../models/event.js");
 
 module.exports = {
   create_One: async (req, res, next) => {
@@ -12,7 +12,7 @@ module.exports = {
   },
   find_All: async (req, res, next) => {
     try {
-      const events = await Events.find({}).sort({createdAt: -1}).exec();
+      const events = await Events.find({}).populate('user').sort({createdAt: -1}).exec();
          
       res.status(200).json(events);
     } catch (error) {
