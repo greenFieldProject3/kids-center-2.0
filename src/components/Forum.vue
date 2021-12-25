@@ -1,98 +1,103 @@
 <template>
-<div class="panel">
-            {{user.username}}<input type="text" v-model="newPost"/>
-        <button v-on:click="addNewPost()">add</button>
-    <div v-for="post in posts" v-bind:key="post.id">
-		<div class="panel-element">
-		<div class="element-actions">
-			<button class="btn btn-action btn-hide"><i class="fa fa-ban"></i></button>
-			<button class="btn btn-action btn-heart"><i class="fa fa-heart-o"></i></button>
-		</div>
-		
-		<div class="element-content">
-			<button class="btn btn-more">
-				<i class="fa fa-ellipsis-h icon-closed"></i>
-				<i class="fa fa-times icon-open"></i>
-				<i class="fa fa-heart-o icon-hearted"></i>
-			</button>
-			
-			<div class="content-post">
-                    <img class="post-avatar" :src="user.user_img">
-				<div class="post-content">
-					<span class="post-title">Lorem Ipsum Dolor Sit</span>
-					<p class="post-body">{{post.message}}</p>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="panel">
+    <div class="forum-input d-flex my-5">
+      <input class="mx-2 p-1 w-100" type="text" v-model="newPost" />
+      <button class="btn btn-primary px-4" v-on:click="addNewPost()">send</button>
     </div>
+    <div v-for="post in posts" v-bind:key="post.id">
+      <div class="panel-element">
+        <div class="element-actions">
+          <button class="btn btn-action btn-hide">
+            <i class="fa fa-ban"></i>
+          </button>
+          <button class="btn btn-action btn-heart">
+            <i class="fa fa-heart-o"></i>
+          </button>
         </div>
+
+        <div class="element-content">
+          <button class="btn btn-more">
+            <i class="fa fa-ellipsis-h icon-closed"></i>
+            <i class="fa fa-times icon-open"></i>
+            <i class="fa fa-heart-o icon-hearted"></i>
+          </button>
+
+          <div class="content-post">
+            <img class="post-avatar" :src="post.user.user_img" />
+            <div class="post-content">
+              <span class="post-title">{{ post.user.username }}</span>
+              <p class="post-body">{{ post.message }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
-// import {EventBus} from '../EventBus.js';
+import axios from "axios";
+// import { inject } from "vue";
+import { useRoute } from "vue-router";
 
 export default {
-    name : 'Forum',
-    data(){
-        return {
-            newPost:"",
-            user : {},
-            users  : [],
-            posts : []
-        }
+  name: "Forum", 
+  data() {
+    return {
+      user: {},
+      newPost: "",
+      posts: [],
+      // EventBus: inject("EventBus"),
+    };
+  },
+
+  created() {
+    const route = useRoute();
+    const id = route.params.id;
+
+    axios.get("http://localhost:8000/user/" + id)
+        .then(({data}) => {
+          console.log("user response : ", data);
+          this.user = data;
+          this.getAllTheMessages();
+        })
+        .catch(error   => console.error("forum user error : ", error));
+  },
+
+  methods: {
+    createNewPost() {
+      const article = {
+        message: this.newPost,
+        user   : this.user._id,
+      };
+
+      axios.post("http://localhost:8000/forum/add", article)
+        .catch(error => console.error("creat new post error : ", error));
     },
-    mounted() {
-      this.getAllTheMessages();
-      this.getUser();
-      // EventBus.on('user', user => this.user = user);
-      // console.log("forum user : ", this.user); 
+
+    getAllTheMessages() {
+      axios.get("http://localhost:8000/forum/")
+          .then(({data}) => {
+            console.log("all msgs : ", data);
+            this.posts = data;
+          })
+          .catch(error   => console.error("get all messages error : ", error));
     },
-    methods: {
-        createNewPost() {
-            const article = {
-              message : this.newPost ,
-              userId : 'e6f85ef2se89f52sdf528d2sf'
-            };
-            axios.post("http://localhost:8000/forum/add", article)
-              .then(response => this.articleId = response.data.id)
-              .catch(error => {
-                this.errorMessage = error.message;
-                console.error("There was an error!", error);
-              });
-        },
-        getAllTheMessages() {
-          axios.get("http://localhost:8000/forum/")
-            .then(response => this.posts = response.data)
-            .catch(error => {
-                this.errorMessage = error.message;
-                console.error("There was an error!", error);
-            });
-        },
-        getUser() {
-            axios.get("http://localhost:8000/user/admin")
-                .then(response => {this.users = response.data
-                  console.log(this.users)})
-                .catch(error => {
-                    this.errorMessage = error.message;
-                    console.error("There was an error!", error);
-                });
-        },
-        addNewPost() {
-            if(this.newPost !== "") {
-              this.createNewPost()
-              this.getAllTheMessages()
-              console.log(this.posts)
-              this.newPost = ""
-            }
-        } 
-    }
-}
+
+    addNewPost() {
+      if (this.newPost !== "") {
+        this.createNewPost();
+        this.getAllTheMessages();
+        console.log(this.posts);
+        this.newPost = "";
+      }
+    },
+  }
+
+};
 </script>
 
 <style>
-
 /* General */
 button {
   display: block;
@@ -109,7 +114,7 @@ h1 {
   padding: 65px 50px;
   font-weight: 700;
   font-size: 32px;
-  color: #6F6F6F;
+  color: #242222;
 }
 .panel {
   max-width: 450px;
@@ -137,15 +142,16 @@ h1 {
   right: 0;
 }
 .panel .panel-element .element-content .btn-more > i {
-  font-size: 16px;
-  color: #929292;
+  font-size: 18px;
+  color: #1a1818;
   vertical-align: middle;
 }
-.panel .panel-element .element-content .btn-more .icon-open, .panel .panel-element .element-content .btn-more .icon-hearted {
+.panel .panel-element .element-content .btn-more .icon-open,
+.panel .panel-element .element-content .btn-more .icon-hearted {
   display: none;
 }
 .panel .panel-element .element-content .btn-more:hover {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 .panel .panel-element .element-content .content-post .post-avatar {
   background-color: #ededed;
@@ -158,17 +164,18 @@ h1 {
   margin-left: 75px;
   padding-top: 9px;
 }
-.panel .panel-element .element-content .content-post .post-content .post-title, .panel .panel-element .element-content .content-post .post-content .post-body {
+.panel .panel-element .element-content .content-post .post-content .post-title,
+.panel .panel-element .element-content .content-post .post-content .post-body {
   display: block;
 }
 .panel .panel-element .element-content .content-post .post-content .post-title {
   font-size: 14px;
-  color: #AFADAD;
+  color: #afadad;
 }
 .panel .panel-element .element-content .content-post .post-content .post-body {
   margin-top: 5px;
   font-size: 12px;
-  color: #CCCBCB;
+  color: #cccbcb;
 }
 .panel .panel-element .element-content:hover .btn-more {
   opacity: 1;
@@ -227,16 +234,27 @@ h1 {
 .panel .panel-element.panel-element-open .element-content .btn-more {
   opacity: 1;
 }
-.panel .panel-element.panel-element-open .element-content .btn-more .icon-closed {
+.panel
+  .panel-element.panel-element-open
+  .element-content
+  .btn-more
+  .icon-closed {
   display: none;
 }
 .panel .panel-element.panel-element-open .element-content .btn-more .icon-open {
   display: inline-block;
 }
-.panel .panel-element.panel-element-hearted .element-actions .btn-action.btn-heart {
+.panel
+  .panel-element.panel-element-hearted
+  .element-actions
+  .btn-action.btn-heart {
   background-color: #e74c3c;
 }
-.panel .panel-element.panel-element-hearted .element-actions .btn-action.btn-heart > i {
+.panel
+  .panel-element.panel-element-hearted
+  .element-actions
+  .btn-action.btn-heart
+  > i {
   color: #fff;
 }
 .panel .panel-element.panel-element-hearted .element-content .btn-more {
@@ -245,20 +263,33 @@ h1 {
 .panel .panel-element.panel-element-hearted .element-content .btn-more > i {
   color: #e74c3c;
 }
-.panel .panel-element.panel-element-hearted .element-content .btn-more .icon-open, .panel .panel-element.panel-element-hearted .element-content .btn-more .icon-closed {
+.panel
+  .panel-element.panel-element-hearted
+  .element-content
+  .btn-more
+  .icon-open,
+.panel
+  .panel-element.panel-element-hearted
+  .element-content
+  .btn-more
+  .icon-closed {
   display: none;
 }
-.panel .panel-element.panel-element-hearted .element-content .btn-more .icon-hearted {
+.panel
+  .panel-element.panel-element-hearted
+  .element-content
+  .btn-more
+  .icon-hearted {
   display: inline-block;
 }
 .panel .panel-element .element-content {
-    background-color: #fff;
-    padding: 15px;
-    border: 1px solid #d6d6d6;
-    position: relative;
-    right: 0;
-    z-index: 2;
-    margin: 1rem 0;
-    border-radius: 10px;
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #d6d6d6;
+  position: relative;
+  right: 0;
+  z-index: 2;
+  margin: 1rem 0;
+  border-radius: 10px;
 }
 </style>

@@ -7,8 +7,9 @@ const UsersController = require("../controllers/users");
 router.route("/admin")
   .get(UsersController.find_All)
 
-router.route("/")
-  .get(UsersController.find)
+router.route("/service").get(UsersController.find)
+
+router.route("/").get(UsersController.find)
 
 router.route("/:userId")
   .get(UsersController.find_One) 

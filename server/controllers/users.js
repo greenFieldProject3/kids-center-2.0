@@ -54,9 +54,7 @@ module.exports = {
           try {
                // console.log("queryUser", req.query);               // the server will try the following
                // console.log("params", req.params);
-               const user = await User
-                    //{fullname:"/"+req.query.fullname+"/",city:"/"+req.query.city+"/",specialty:"/"+req.query.specialty+"/"}
-                    .find({ city: { $regex: req.query.city }, fullname: { $regex: req.query.fullname }, specialty: { $regex: req.query.specialty }, category: "provider" })
+               const user = await User.find({ category: "provider" })
 
                console.log(user)
                // .populate(["parent", "provider"])
